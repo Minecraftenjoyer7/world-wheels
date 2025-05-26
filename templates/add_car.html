@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% from 'bootstrap5/form.html' import render_form %}
+    <meta charset="UTF-8" />
+    <meta name="viewport"  content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+            {{ bootstrap.load_css() }}
+            <link href="./static/css/add_item_styles.css" rel="stylesheet">
+    <title>World Wheels</title>
+  </head>
+  <body>
+  <div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+      <h1>Add a new car into the database</h1>
+      {% if current_user.is_authenticated == True and current_user.role == "Admin" %}
+              {{ render_form(form, novalidate=True) }}
+      {% endif %}
+    </div>
+  </div>
+</div>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .price-details {
+            margin-bottom: 20px;
+        }
+        .price-details h2 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        .price-details p {
+            margin: 5px 0;
+            color: #555;
+        }
+        .button {
+            margin-top: 20px;
+        }
+        .button button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .button .confirm {
+            background-color: #28a745;
+            color: white;
+        }
+        .button .cancel {
+            background-color: #dc3545;
+            color: white;
+        }
+        .button button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="price-details">
+            <h2>Order Summary</h2>
+            <p>pickup date :  {{pickup_date}}</p>
+            <p>return date :  {{return_date}}</p>
+            <p>car : {{car['model']}}</p>
+            <p>Total Price : <strong>{{total}}$</strong></p>
+        </div>
+        <div class="button">
+            <a href="{{url_for('confirm_payment')}}">
+                <button class="confirm" onclick="confirm_payment()">Confirm Payment</button>
+            </a>
+            <a href="{{url_for('shop')}}">
+                <button class="cancel" onclick="cancelPayment()">Cancel</button>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function confirmPayment() {
+            alert('Payment Confirmed! Thank you.');
+        }
+
+        function cancelPayment() {
+            alert('Payment Canceled.');
+        }
+    </script>
+</body>
+</html>

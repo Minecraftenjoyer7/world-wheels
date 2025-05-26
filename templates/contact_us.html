@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>World Wheels</title>
+    <link href="../static/css/contact_style.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">
+</head>
+<body>
+<form class="form" action="{{url_for('contact')}}" method="post">
+  <h2>CONTACT US</h2>
+      <p type="Name:"><input placeholder="Write your name here.." name="name"/></p>
+      <p type="Email:"><input placeholder="Let us know how to contact you back.." name="email"></p>
+      <p type="Message:"><input placeholder="What would you like to tell us.." name="message"></p>
+    <button>Send Message</button>
+</form>
+<br>
+</body>
+</html>

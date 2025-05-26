@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/login_style.css">
+    <title>World Wheels</title>
+</head>
+<body>
+
+<div class="form-modal">
+    <div class="form-toggle">
+        <button id="login-toggle" onclick="toggleLogin()">log in</button>
+        <button id="signup-toggle" onclick="toggleSignup()">sign up</button>
+    </div>
+
+    <div id="login-form">
+        <form action="{{url_for('login')}}" method="post">
+            <input type="text" placeholder="Enter email" name="email_1" required/>
+            <input type="password" placeholder="Enter password" name="password_1" required/>
+            <button type="submit" class="btn login">login</button>
+        </form>
+    </div>
+
+    <div id="signup-form">
+        <form action="{{url_for('register')}}" method="post">
+            <input type="email" placeholder="Enter your email" name="email_2" required/>
+            <input type="text" placeholder="Choose username" name="username_2" required/>
+            <input type="text" placeholder="Enter your phone number" name="phone_number" required/>
+            <input type="text" placeholder="Enter your address" name="address" required/>
+            <input type="text" placeholder="Enter sid" name="sid" required/>
+            <input type="password" placeholder="Create password" name="password_2" required/>
+<!--            <div class="radio-group">-->
+<!--                <label>-->
+<!--                    <input type="radio" name="userType" value="User" required> User-->
+<!--                </label>-->
+<!--                <label>-->
+<!--                    <input type="radio" name="userType" value="Admin" required> Admin-->
+<!--                </label>-->
+<!--            </div>-->
+            <button type="submit" class="btn signup">create account</button>
+       </form>
+    </div>
+</div>
+<script>
+    function toggleSignup(){
+   document.getElementById("login-toggle").style.backgroundColor="#fff";
+    document.getElementById("login-toggle").style.color="#222";
+    document.getElementById("signup-toggle").style.backgroundColor="#46a9b8";
+    document.getElementById("signup-toggle").style.color="#fff";
+    document.getElementById("login-form").style.display="none";
+    document.getElementById("signup-form").style.display="block";
+}
+
+function toggleLogin(){
+    document.getElementById("login-toggle").style.backgroundColor="#46a9b8";
+    document.getElementById("login-toggle").style.color="#fff";
+    document.getElementById("signup-toggle").style.backgroundColor="#fff";
+    document.getElementById("signup-toggle").style.color="#222";
+    document.getElementById("signup-form").style.display="none";
+    document.getElementById("login-form").style.display="block";
+}
+window.onload = function() {
+    {% if alert %}
+        alert("{{ alert }}");
+    {% endif %}
+}
+</script>
+</body>
+</html>
